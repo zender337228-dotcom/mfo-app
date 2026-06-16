@@ -2,297 +2,666 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Займы онлайн</title>
-    <!-- Подключаем шрифт Telegram (San Francisco) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Займы онлайн — подбери займ за 2 минуты</title>
     <style>
+        /* --- БАЗОВЫЕ СТИЛИ --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--tg-theme-bg-color, #ffffff);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            padding: 16px;
-            color: var(--tg-theme-text-color, #000000);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fc;
+            color: #1a1a2e;
+            padding: 20px;
         }
 
-        /* Контейнер сетки */
         .container {
             max-width: 600px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            padding-bottom: 20px;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            padding: 24px 20px 40px;
         }
 
-        /* Карточка МФО */
-        .offer-card {
-            background-color: var(--tg-theme-secondary-bg-color, #f5f5f5);
-            border-radius: 16px;
-            padding: 16px;
+        /* --- ШАПКА С МЕСТОМ ДЛЯ ЛОГОТИПА --- */
+        .header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: transform 0.1s ease;
-            border: 1px solid var(--tg-theme-hint-color, #e0e0e0);
-        }
-        
-        .offer-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex: 1;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f0f2f5;
         }
 
-        /* Заглушка для логотипа */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ⚠️ ТУТ БУДЕТ ТВОЙ ЛОГОТИП */
+        .logo img {
+            height: 40px;
+            width: auto;
+            border-radius: 12px;
+        }
+
+        /* ЗАГЛУШКА, ЕСЛИ КАРТИНКИ НЕТ */
         .logo-placeholder {
-            width: 48px;
-            height: 48px;
-            background: var(--tg-theme-button-color, #3390ec);
-            border-radius: 48px;
+            width: 42px;
+            height: 42px;
+            background: #2d7aff;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
             color: white;
-            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 18px;
         }
 
-        .text h3 {
-            font-size: 17px;
+        .logo-text {
+            font-weight: 700;
+            font-size: 20px;
+            color: #1a1a2e;
+        }
+
+        .badge {
+            background: #eef3ff;
+            color: #2d7aff;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 12px;
             font-weight: 600;
+        }
+
+        /* --- ПЕРВЫЙ ЭКРАН --- */
+        .hero {
+            text-align: center;
+            padding: 12px 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .hero h1 span {
+            color: #2d7aff;
+        }
+
+        .hero p {
+            color: #5a5a7a;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 16px 0 8px;
+            flex-wrap: wrap;
+        }
+
+        .stats-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #f5f7ff;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a2e;
+        }
+
+        .stats-item span {
+            font-size: 18px;
+        }
+
+        /* --- ПОЛЗУНОК --- */
+        .slider-block {
+            background: #f5f7ff;
+            border-radius: 24px;
+            padding: 28px 20px 24px;
+            margin: 20px 0 28px;
+            text-align: center;
+            border: 1px solid #eef2f9;
+        }
+
+        .slider-block h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .slider-block .sub {
+            color: #5a5a7a;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        #amount-slider {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #dce3f0;
+            border-radius: 10px;
+            outline: none;
+            margin: 12px 0 10px;
+        }
+
+        #amount-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            background: #2d7aff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(45, 122, 255, 0.3);
+        }
+
+        .amount-display {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a1a2e;
+            display: block;
+            margin: 4px 0 4px;
+        }
+
+        .amount-display small {
+            font-size: 18px;
+            font-weight: 400;
+            color: #5a5a7a;
+        }
+
+        .btn-primary {
+            background: #2d7aff;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-size: 18px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 12px;
+            box-shadow: 0 6px 20px rgba(45, 122, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #1a5fdb;
+            transform: scale(1.01);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* --- ПРЕИМУЩЕСТВА --- */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 24px 0 8px;
+        }
+
+        .feature-item {
+            background: #f8faff;
+            border-radius: 16px;
+            padding: 16px 12px;
+            text-align: center;
+            border: 1px solid #eef2f9;
+        }
+
+        .feature-item span {
+            font-size: 26px;
+            display: block;
             margin-bottom: 4px;
         }
 
-        .text p {
-            font-size: 13px;
-            color: var(--tg-theme-hint-color, #8e8e93);
+        .feature-item p {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin: 0;
+        }
+
+        .feature-item small {
+            font-size: 12px;
+            color: #5a5a7a;
+        }
+
+        /* --- БЕГУЩИЕ ЗАЯВКИ --- */
+        .live-feed {
+            background: #ffffff;
+            border: 1px solid #eef2f9;
+            border-radius: 20px;
+            padding: 16px 16px 10px;
+            margin: 20px 0 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .live-feed-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .live-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .live-feed-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 220px;
+            overflow: hidden;
+        }
+
+        .feed-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8faff;
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 14px;
+            border-left: 4px solid #2d7aff;
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-12px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .feed-item .name { font-weight: 600; color: #1a1a2e; }
+        .feed-item .amount { font-weight: 700; color: #1a1a2e; }
+
+        .feed-item .status {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 12px;
+            border-radius: 30px;
+        }
+
+        .status-new { background: #eef3ff; color: #2d7aff; }
+        .status-approved { background: #e6f7e6; color: #16a34a; }
+        .status-payout { background: #fef3c7; color: #b45309; }
+
+        .feed-item .time { font-size: 11px; color: #8e8ea0; }
+
+        /* --- КВАДРАТНЫЕ КАРТОЧКИ МФО --- */
+        #offers-list {
+            display: none;
+            margin-top: 24px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .offer-card {
+            background: #f8faff;
+            border: 1px solid #eef2f9;
+            border-radius: 20px;
+            padding: 16px 12px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: 0.15s;
+        }
+
+        .offer-card:hover {
+            border-color: #cdd9f0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+
+        .offer-logo {
+            width: 72px;
+            height: 72px;
+            background: #ffffff;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid #eef2f9;
+            overflow: hidden;
+            font-weight: 700;
+            font-size: 22px;
+            color: #2d7aff;
+        }
+
+        .offer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
+        }
+
+        .offer-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+
+        .offer-desc {
+            font-size: 12px;
+            color: #5a5a7a;
+            margin-bottom: 10px;
+            line-height: 1.2;
         }
 
         .apply-btn {
-            background-color: var(--tg-theme-button-color, #3390ec);
-            color: var(--tg-theme-button-text-color, #ffffff);
+            background: #2d7aff;
+            color: white;
             border: none;
-            padding: 8px 20px;
-            border-radius: 30px;
+            padding: 6px 16px;
+            border-radius: 40px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 13px;
             cursor: pointer;
-            transition: opacity 0.2s;
-            flex-shrink: 0;
-        }
-        
-        .apply-btn:active {
-            opacity: 0.7;
+            width: 100%;
+            transition: 0.15s;
         }
 
-        /* Шапка приложения */
-        .header {
-            margin-bottom: 20px;
-            text-align: center;
+        .apply-btn:active {
+            opacity: 0.7;
+            transform: scale(0.96);
         }
-        
-        .header h1 {
-            font-size: 24px;
-            margin-bottom: 4px;
-        }
-        
-        .badge {
-            background-color: rgba(50, 144, 236, 0.2);
-            color: var(--tg-theme-button-color, #3390ec);
-            padding: 4px 12px;
-            border-radius: 20px;
+
+        /* --- ПОДВАЛ --- */
+        .footer-note {
+            margin-top: 30px;
             font-size: 12px;
-            display: inline-block;
+            color: #8e8ea0;
+            text-align: center;
+            border-top: 1px solid #f0f2f5;
+            padding-top: 20px;
+            line-height: 1.5;
+        }
+
+        /* --- АДАПТАЦИЯ ПОД ТЕЛЕФОН --- */
+        @media (max-width: 500px) {
+            .container { padding: 16px; }
+            .hero h1 { font-size: 24px; }
+            .stats { gap: 12px; }
+            .features { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .feature-item { padding: 12px 8px; }
+            .offers-grid { gap: 10px; }
+            .offer-logo { width: 60px; height: 60px; }
+            .offer-name { font-size: 14px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- ===== ШАПКА ===== -->
     <div class="header">
-        <h1>💸 Займы онлайн</h1>
-        <div class="badge">Одобрение 97%</div>
-        <p style="margin-top: 10px; font-size: 14px;">Выберите сумму и получите деньги на карту за 5 минут</p>
+        <div class="logo">
+            <!-- ⚠️ ТУТ БУДЕТ ТВОЙ ЛОГОТИП -->
+            <!-- 
+                1. Загрузи логотип в ту же папку на GitHub.
+                2. Замени "logo.png" на имя твоего файла.
+                3. Если картинки нет, будет показана эмодзи-заглушка.
+            -->
+            <img src="logo.png" alt="Логотип" style="height: 40px; width: auto; border-radius: 12px;" onerror="this.style.display='none'; document.getElementById('logoPlaceholder').style.display='flex';">
+            <div class="logo-placeholder" id="logoPlaceholder" style="display: none;">💰</div>
+            <span class="logo-text">Займ<span style="color:#2d7aff;">Гид</span></span>
+        </div>
+        <div class="badge">⭐ Одобрение 97%</div>
     </div>
 
-    
-    <div id="offers-list"></div>
+    <!-- ===== ПЕРВЫЙ ЭКРАН ===== -->
+    <div class="hero">
+        <h1>Деньги на карту <span>за 5 минут</span></h1>
+        <p>Без справок, поручителей и лишних звонков</p>
+        <div class="stats">
+            <div class="stats-item"><span>✅</span> 0% первый займ</div>
+            <div class="stats-item"><span>⚡</span> 97% одобрения</div>
+            <div class="stats-item"><span>🕒</span> 24/7</div>
+        </div>
+    </div>
+
+    <!-- ===== ПОЛЗУНОК ===== -->
+    <div class="slider-block" id="questionBlock">
+        <h2>💰 Какая сумма вам нужна?</h2>
+        <div class="sub">Двигайте ползунок, выберите сумму</div>
+        <input type="range" id="amountSlider" min="1000" max="30000" step="1000" value="5000">
+        <span class="amount-display">
+            <span id="amountDisplay">5000</span> <small>₽</small>
+        </span>
+        <button class="btn-primary" id="showOffersBtn">👉 Подобрать займ</button>
+    </div>
+
+    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+    <div class="features">
+        <div class="feature-item">
+            <span>⚡</span>
+            <p>За 2 минуты</p>
+            <small>одобрение онлайн</small>
+        </div>
+        <div class="feature-item">
+            <span>🔒</span>
+            <p>Безопасно</p>
+            <small>ваши данные защищены</small>
+        </div>
+        <div class="feature-item">
+            <span>💳</span>
+            <p>На любую карту</p>
+            <small>мгновенный перевод</small>
+        </div>
+        <div class="feature-item">
+            <span>🔄</span>
+            <p>С любой КИ</p>
+            <small>одобряем с просрочками</small>
+        </div>
+    </div>
+
+    <!-- ===== БЕГУЩИЕ ЗАЯВКИ ===== -->
+    <div class="live-feed" id="liveFeed">
+        <div class="live-feed-header">
+            <span class="live-dot"></span>
+            <span style="font-weight: 600; font-size: 16px;">Сейчас оформляют</span>
+            <span style="color: #2d7aff; font-size: 14px;">🔥 24/7</span>
+        </div>
+        <div class="live-feed-items" id="feedItems"></div>
+    </div>
+
+    <!-- ===== СПИСОК МФО (СКРЫТ) ===== -->
+    <div id="offers-list" style="display: none;">
+        <h2 style="font-size: 20px; margin: 12px 0 6px; text-align: center;">🔥 Доступные займы</h2>
+        <p style="text-align: center; color: #5a5a7a; font-size: 14px; margin-bottom: 16px;">Нажмите «Оформить», чтобы перейти к заявке</p>
+        <div class="offers-grid" id="offersContainer"></div>
+    </div>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <div class="footer-note">
+        Реклама. 18+ Услуги предоставляются МФО. Первый займ до 10 000 ₽ — 0% при своевременном погашении.<br>
+        <a href="#">Оферта</a> · <a href="#">Политика конфиденциальности</a>
+    </div>
 </div>
 
 <script>
-    
+    // ================================================================
+    // 1. ТВОЙ СПИСОК МФО (ВСЕ ССЫЛКИ И ОПИСАНИЯ)
+    // ================================================================
     const offers = [
-        {
-            name: "Joymoney",
-            description: "0% для новых клиентов до 30 минут",
-            url: "https://trk.ppdu.ru/click/ozOtKceG?erid=Kra23k98b", 
-            logoText: "JM"
-        },
-        {
-            name: "BelkaCredit",
-            description: "Сумма до 30 000 ₽, ставка от 0%",
-            url: "https://trk.ppdu.ru/click/VIouyVge?erid=2SDnjeBXSqx", // ЗАМЕНИ
-            logoText: "BC"
-        },
-        {
-            name: "Max.Credit",
-            description: "Первый займ под 0.8% на 30 дней",
-            url: "https://trk.ppdu.ru/click/WEZvv780?erid=2SDnjbuHuCz", // ЗАМЕНИ
-            logoText: "MC"
-        },
-        {
-            name: "MScore",
-            description: "Первый займ под 0.8% на 30 дней",
-            url: "https://trk.ppdu.ru/click/iCjimFUP?erid=2SDnjdo1deu", // ЗАМЕНИ
-            logoText: "MSc"
-        },
-        {
-            name: "Быстроденьги",
-            description: "Первый займ под 0% до 100.000р",
-            url: "https://trk.ppdu.ru/click/PaeeJ2lf?erid=2SDnjcrSm9t", // ЗАМЕНИ
-            logoText: "БД"
-        },
-        {
-            name: "Мега Деньги",
-            description: "Первый займ под 0.8% на 30 дней",
-            url: "https://trk.ppdu.ru/click/2C1UblIC?erid=2SDnjbxrnwX", // ЗАМЕНИ
-            logoText: "МД"
-        },
-        {
-            name: "Credit Plus",
-            description: "до 30.000р, ставка 0.8%",
-            url: "https://trk.ppdu.ru/click/npiqnlE0?erid=2SDnjdkMLTk", // ЗАМЕНИ
-            logoText: "CP"
-        },
-        {
-            name: "ГринМани",
-            description: "первый займ под 0%",
-            url: "https://trk.ppdu.ru/click/AiB3fpXX?erid=2SDnjeD276A", // ЗАМЕНИ
-            logoText: "ГМ"
-        },
-        {
-            name: "Кредитнау",
-            description: "займ под 0.8%",
-            url: "https://trk.ppdu.ru/click/3FooA4s3?erid=2SDnjcBztLi", // ЗАМЕНИ
-            logoText: "КН"
-        },
-        {
-            name: "Миг Кредит",
-            description: "до 100.000р, от 0%",
-            url: "https://trk.ppdu.ru/click/SVMUykjH?erid=2SDnjdHgEMQ", // ЗАМЕНИ
-            logoText: "МК"
-        },
-        {
-            name: "Fin5",
-            description: "до 25.000р, от 0.5%",
-            url: "https://trk.ppdu.ru/click/I6oR1NSO?erid=2SDnjbxiPg4", // ЗАМЕНИ
-            logoText: "F5"
-        },
-        {
-            name: "ЛайкЗайм",
-            description: "до 30.000р, от 0%",
-            url: "https://trk.ppdu.ru/click/ohbusdSp?erid=2SDnjevMQUa", // ЗАМЕНИ
-            logoText: "ЛЗ"
-        },
-        {
-            name: "До Зарплаты ",
-            description: "до 100.000р, от 0%",
-            url: "https://trk.ppdu.ru/click/Tc8w8kwA?erid=2SDnjevZFtJ", // ЗАМЕНИ
-            logoText: "ДЗ"
-        },
-        {
-            name: "Альфа Деньги",
-            description: "до 50.000р, от 0%",
-            url: "https://trk.ppdu.ru/click/QS4DAn1m?erid=2SDnjdr3sYP", // ЗАМЕНИ
-            logoText: "АД"
-        },
-        {
-            name: "Boostra",
-            description: "до 30.000р, от 0%",
-            url: "https://trk.ppdu.ru/click/KnCW2hRK?erid=LjN8KcZD2", // ЗАМЕНИ
-            logoText: "BS"
-        },
-        {
-            name: "Турбозайм",
-            description: "до 100.000р, от 0%",
-            url: "https://trk.ppdu.ru/click/GLvNDsfv?erid=2SDnjd8rmri", // ЗАМЕНИ
-            logoText: "ТЗ"
-        },
-        {
-            name: "MoneyMan",
-            description: "до 100.000р, от 0%",
-            url: "https://trk.ppdu.ru/click/IXQiOXHV?erid=2SDnjdTrs6M", // ЗАМЕНИ
-            logoText: "MM"
-        },
-        {
-            name: "Деньга",
-            description: "до 100.000р, от 0%",
-            url: "https://trk.ppdu.ru/click/GQozttEA?erid=2SDnjf3cK1c", // ЗАМЕНИ
-            logoText: "ДЕ"
-        },
-        {
-            name: "Деньги на дом",
-            description: "до 100.000р, до 26 недель",
-            url: "https://trk.ppdu.ru/click/7yrC6p7l?erid=2SDnjboLDnJ", // ЗАМЕНИ
-            logoText: "ДнД"
-        },
-        {
-            name: "Привет, сосед!",
-            description: "до 50.000р, от 0%",
-            url: "https://trk.ppdu.ru/click/HmgIG9i0?erid=2SDnjeb3GV2", // ЗАМЕНИ
-            logoText: "ПС"
-        }
-        
+        { name: "Joymoney", description: "0% для новых", url: "https://trk.ppdu.ru/click/ozOtKceG?erid=Kra23k98b", logoText: "JM", logoImage: "joymoney.png" },
+        { name: "BelkaCredit", description: "до 30 000 ₽, от 0%", url: "https://trk.ppdu.ru/click/VIouyVge?erid=2SDnjeBXSqx", logoText: "BC", logoImage: "belkacredit.png" },
+        { name: "Max.Credit", description: "0.8% на 30 дней", url: "https://trk.ppdu.ru/click/WEZvv780?erid=2SDnjbuHuCz", logoText: "MC", logoImage: "maxcredit.png" },
+        { name: "MScore", description: "0.8% на 30 дней", url: "https://trk.ppdu.ru/click/iCjimFUP?erid=2SDnjdo1deu", logoText: "MSc", logoImage: "mscore.png" },
+        { name: "Быстроденьги", description: "0% до 100 000р", url: "https://trk.ppdu.ru/click/PaeeJ2lf?erid=2SDnjcrSm9t", logoText: "БД", logoImage: "bistrodengi.png" },
+        { name: "Мега Деньги", description: "0.8% на 30 дней", url: "https://trk.ppdu.ru/click/2C1UblIC?erid=2SDnjbxrnwX", logoText: "МД", logoImage: "megadengi.png" },
+        { name: "Credit Plus", description: "до 30 000р, 0.8%", url: "https://trk.ppdu.ru/click/npiqnlE0?erid=2SDnjdkMLTk", logoText: "CP", logoImage: "creditplus.png" },
+        { name: "ГринМани", description: "первый займ 0%", url: "https://trk.ppdu.ru/click/AiB3fpXX?erid=2SDnjeD276A", logoText: "ГМ", logoImage: "greenmoney.png" },
+        { name: "Кредитнау", description: "займ под 0.8%", url: "https://trk.ppdu.ru/click/3FooA4s3?erid=2SDnjcBztLi", logoText: "КН", logoImage: "creditnow.png" },
+        { name: "Миг Кредит", description: "до 100 000р, от 0%", url: "https://trk.ppdu.ru/click/SVMUykjH?erid=2SDnjdHgEMQ", logoText: "МК", logoImage: "migcredit.png" },
+        { name: "Fin5", description: "до 25 000р, от 0.5%", url: "https://trk.ppdu.ru/click/I6oR1NSO?erid=2SDnjbxiPg4", logoText: "F5", logoImage: "finfive.png" },
+        { name: "ЛайкЗайм", description: "до 30 000р, 0%", url: "https://trk.ppdu.ru/click/ohbusdSp?erid=2SDnjevMQUa", logoText: "ЛЗ", logoImage: "likezaym.png" },
+        { name: "До Зарплаты", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/Tc8w8kwA?erid=2SDnjevZFtJ", logoText: "ДЗ", logoImage: "dozp.jpeg" },
+        { name: "Альфа Деньги", description: "до 50 000р, 0%", url: "https://trk.ppdu.ru/click/QS4DAn1m?erid=2SDnjdr3sYP", logoText: "АД", logoImage: "alfadengi.png" },
+        { name: "Boostra", description: "до 30 000р, 0%", url: "https://trk.ppdu.ru/click/KnCW2hRK?erid=LjN8KcZD2", logoText: "BS", logoImage: "boostra.png" },
+        { name: "Турбозайм", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/GLvNDsfv?erid=2SDnjd8rmri", logoText: "ТЗ", logoImage: "turbozaim.png" },
+        { name: "MoneyMan", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/IXQiOXHV?erid=2SDnjdTrs6M", logoText: "MM", logoImage: "moneyman.png" },
+        { name: "Деньга", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/GQozttEA?erid=2SDnjf3cK1c", logoText: "ДЕ", logoImage: "denga.png" },
+        { name: "Деньги на дом", description: "до 100 000р, 26 нед", url: "https://trk.ppdu.ru/click/7yrC6p7l?erid=2SDnjboLDnJ", logoText: "ДнД", logoImage: "dengidom.png" },
+        { name: "Привет, сосед!", description: "до 50 000р, 0%", url: "https://trk.ppdu.ru/click/HmgIG9i0?erid=2SDnjeb3GV2", logoText: "ПС", logoImage: "privetsosed.png" }
     ];
 
-    
-    function renderOffers() {
-        const container = document.getElementById('offers-list');
-        if (!container) return;
-        
-        let html = '';
-        for (let i = 0; i < offers.length; i++) {
-            const item = offers[i];
-            html += `
-                <div class="offer-card" data-url="${item.url}">
-                    <div class="offer-info">
-                        <div class="logo-placeholder">${item.logoText}</div>
-                        <div class="text">
-                            <h3>${item.name}</h3>
-                            <p>${item.description}</p>
-                        </div>
-                    </div>
-                    <button class="apply-btn" data-index="${i}">Оформить</button>
-                </div>
-            `;
-        }
-        container.innerHTML = html;
+    // ================================================================
+    // 2. ПОЛЗУНОК
+    // ================================================================
+    const slider = document.getElementById('amountSlider');
+    const display = document.getElementById('amountDisplay');
+    const questionBlock = document.getElementById('questionBlock');
+    const offersList = document.getElementById('offers-list');
+    const offersContainer = document.getElementById('offersContainer');
+    const showBtn = document.getElementById('showOffersBtn');
 
-        // Добавляем обработчики на кнопки
-        const buttons = document.querySelectorAll('.apply-btn');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
+    slider.addEventListener('input', function() {
+        display.textContent = this.value;
+    });
+
+    showBtn.addEventListener('click', function() {
+        this.textContent = '⏳ Ищем...';
+        this.disabled = true;
+
+        setTimeout(() => {
+            questionBlock.style.display = 'none';
+            offersList.style.display = 'block';
+            renderOffersGrid();
+            this.textContent = '✅ Подобрано!';
+            this.disabled = false;
+        }, 700);
+    });
+
+    // ================================================================
+    // 3. ОТРИСОВКА КАРТОЧЕК (КВАДРАТИКАМИ)
+    // ================================================================
+    function renderOffersGrid() {
+        offersContainer.innerHTML = '';
+
+        offers.forEach((item) => {
+            const card = document.createElement('div');
+            card.className = 'offer-card';
+
+            let logoHtml = '';
+            if (item.logoImage) {
+                // Если есть картинка — показываем её
+                logoHtml = `<img src="${item.logoImage}" alt="${item.name}" onerror="this.style.display='none'; this.parentElement.textContent='${item.logoText || item.name.substring(0,2).toUpperCase()}';">`;
+            } else {
+                // Если картинки нет — показываем буквы
+                logoHtml = item.logoText || item.name.substring(0, 2).toUpperCase();
+            }
+
+            card.innerHTML = `
+                <div class="offer-logo">${logoHtml}</div>
+                <div class="offer-name">${item.name}</div>
+                <div class="offer-desc">${item.description}</div>
+                <button class="apply-btn" data-url="${item.url}">Оформить</button>
+            `;
+
+            offersContainer.appendChild(card);
+        });
+
+        document.querySelectorAll('.apply-btn').forEach((btn) => {
+            btn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                const index = btn.getAttribute('data-index');
-                if (index !== null && offers[index]) {
-                    const url = offers[index].url;
-                    // Открываем ссылку встроенным браузером Telegram
-                    // Важно: Telegram автоматически определяет, какой это тип ссылки
-                    window.location.href = url;
-                }
+                window.location.href = this.getAttribute('data-url');
             });
         });
     }
 
-    // Запускаем отрисовку, когда страница загрузится
-    renderOffers();
+    // ================================================================
+    // 4. БЕГУЩИЕ ЗАЯВКИ (АВТОМАТИЧЕСКИЕ)
+    // ================================================================
+    const feedItems = [
+        { name: "Тамара Н.Н.", amount: "40 000 ₽", status: "Новая заявка", statusClass: "status-new", time: "только что" },
+        { name: "Алексей Т.А.", amount: "42 000 ₽", status: "Новая заявка", statusClass: "status-new", time: "1 мин назад" },
+        { name: "Данила А.С.", amount: "37 000 ₽", status: "Одобрено", statusClass: "status-approved", time: "3 мин назад" },
+        { name: "Геннадий Г.С.", amount: "50 000 ₽", status: "Одобрено", statusClass: "status-approved", time: "5 мин назад" },
+        { name: "Никита С.Ф.", amount: "56 000 ₽", status: "Выдача денег", statusClass: "status-payout", time: "7 мин назад" },
+        { name: "Алена М.А.", amount: "52 000 ₽", status: "Выдача денег", statusClass: "status-payout", time: "9 мин назад" },
+        { name: "Олег В.С.", amount: "28 000 ₽", status: "Новая заявка", statusClass: "status-new", time: "12 мин назад" },
+        { name: "Марина Д.Д.", amount: "45 000 ₽", status: "Одобрено", statusClass: "status-approved", time: "15 мин назад" },
+        { name: "Сергей К.К.", amount: "60 000 ₽", status: "Выдача денег", statusClass: "status-payout", time: "18 мин назад" },
+        { name: "Екатерина П.П.", amount: "33 000 ₽", status: "Новая заявка", statusClass: "status-new", time: "22 мин назад" },
+        { name: "Дмитрий И.И.", amount: "49 000 ₽", status: "Одобрено", statusClass: "status-approved", time: "26 мин назад" },
+        { name: "Анна С.С.", amount: "55 000 ₽", status: "Выдача денег", statusClass: "status-payout", time: "30 мин назад" }
+    ];
+
+    let feedIndex = 0;
+    const feedContainer = document.getElementById('feedItems');
+
+    function addFeedItem() {
+        const item = feedItems[feedIndex % feedItems.length];
+        feedIndex++;
+        
+        const div = document.createElement('div');
+        div.className = 'feed-item';
+        div.innerHTML = `
+            <span class="name">${item.name}</span>
+            <span class="amount">${item.amount}</span>
+            <span class="status ${item.statusClass}">${item.status}</span>
+            <span class="time">${item.time}</span>
+        `;
+        
+        feedContainer.appendChild(div);
+        
+        while (feedContainer.children.length > 6) {
+            feedContainer.removeChild(feedContainer.firstChild);
+        }
+    }
+
+    // Первые заявки
+    for (let i = 0; i < 4; i++) {
+        setTimeout(() => addFeedItem(), i * 400);
+    }
+    // Дальше каждые 3.5 секунды
+    setInterval(addFeedItem, 3500);
 </script>
+
 </body>
 </html>
