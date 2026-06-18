@@ -1,680 +1,807 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Займы онлайн — подбери займ за 2 минуты</title>
-    
-    <!-- Top.Mail.Ru counter -->
-<script type="text/javascript">
-var _tmr = window._tmr || (window._tmr = []);
-_tmr.push({id: "3773823", type: "pageView", start: (new Date()).getTime()});
-(function (d, w, id) {
-  if (d.getElementById(id)) return;
-  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-  ts.src = "https://top-fwz1.mail.ru/js/code.js";
-  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
-  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-})(document, window, "tmr-code");
-</script>
-<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3773823;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
-<!-- /Top.Mail.Ru counter -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ЗАЙМЫЧ — лучшие микрозаймы</title>
+  <style>
+    /* === ОБЩИЕ СБРОСЫ === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <style>
-        /* --- БАЗОВЫЕ СТИЛИ --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f4f6fa;
+      color: #1a1a2e;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f8f9fc;
-            color: #1a1a2e;
-            padding: 20px;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 28px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-            padding: 24px 20px 40px;
-        }
+    /* === ШАПКА === */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-        /* --- ШАПКА С МЕСТОМ ДЛЯ ЛОГОТИПА --- */
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #f0f2f5;
-        }
+    .logo img {
+      height: 48px;
+      width: auto;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    .nav {
+      display: flex;
+      gap: 24px;
+      font-weight: 600;
+      font-size: 16px;
+    }
 
-        /* ⚠️ ТУТ БУДЕТ ТВОЙ ЛОГОТИП */
-        .logo img {
-            height: 40px;
-            width: auto;
-            border-radius: 12px;
-        }
+    .nav a {
+      text-decoration: none;
+      color: #1a1a2e;
+      transition: color 0.2s;
+    }
 
-        /* ЗАГЛУШКА, ЕСЛИ КАРТИНКИ НЕТ */
-        .logo-placeholder {
-            width: 42px;
-            height: 42px;
-            background: #2d7aff;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
-        }
+    .nav a:hover {
+      color: #f97316;
+    }
 
-        .logo-text {
-            font-weight: 700;
-            font-size: 20px;
-            color: #1a1a2e;
-        }
+    /* === ГЛАВНЫЙ БЛОК === */
+    .hero {
+      text-align: center;
+      padding: 40px 0 30px;
+    }
 
-        .badge {
-            background: #eef3ff;
-            color: #2d7aff;
-            padding: 4px 14px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 600;
-        }
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #1a1a2e;
+    }
 
-        /* --- ПЕРВЫЙ ЭКРАН --- */
-        .hero {
-            text-align: center;
-            padding: 12px 0 20px;
-        }
+    .hero h1 span {
+      color: #f97316;
+    }
 
-        .hero h1 {
-            font-size: 28px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 8px;
-        }
+    .hero p {
+      font-size: 20px;
+      color: #475569;
+      max-width: 720px;
+      margin: 16px auto 24px;
+      line-height: 1.5;
+    }
 
-        .hero h1 span {
-            color: #2d7aff;
-        }
+    /* === ПОЛЗУНОК === */
+    .slider-block {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 32px 24px 28px;
+      max-width: 640px;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
 
-        .hero p {
-            color: #5a5a7a;
-            font-size: 16px;
-            margin-bottom: 16px;
-        }
+    .slider-block h2 {
+      font-size: 22px;
+      font-weight: 700;
+    }
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin: 16px 0 8px;
-            flex-wrap: wrap;
-        }
+    .slider-block .sub {
+      color: #64748b;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
 
-        .stats-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: #f5f7ff;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 500;
-            color: #1a1a2e;
-        }
+    #amount-slider {
+      width: 100%;
+      height: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #e2e8f0;
+      border-radius: 10px;
+      outline: none;
+    }
 
-        .stats-item span {
-            font-size: 18px;
-        }
+    #amount-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      background: #f97316;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(249, 115, 22, 0.4);
+    }
 
-        /* --- ПОЛЗУНОК --- */
-        .slider-block {
-            background: #f5f7ff;
-            border-radius: 24px;
-            padding: 28px 20px 24px;
-            margin: 20px 0 28px;
-            text-align: center;
-            border: 1px solid #eef2f9;
-        }
+    .amount-display {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1a1a2e;
+      display: block;
+      margin: 8px 0 12px;
+    }
 
-        .slider-block h2 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
+    .amount-display small {
+      font-size: 20px;
+      font-weight: 400;
+      color: #64748b;
+    }
 
-        .slider-block .sub {
-            color: #5a5a7a;
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
+    .btn-primary {
+      background: #f97316;
+      color: #fff;
+      border: none;
+      padding: 16px 32px;
+      border-radius: 60px;
+      font-size: 20px;
+      font-weight: 700;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+    }
 
-        #amount-slider {
-            width: 100%;
-            height: 6px;
-            -webkit-appearance: none;
-            appearance: none;
-            background: #dce3f0;
-            border-radius: 10px;
-            outline: none;
-            margin: 12px 0 10px;
-        }
+    .btn-primary:hover {
+      background: #ea580c;
+    }
 
-        #amount-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 22px;
-            height: 22px;
-            background: #2d7aff;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(45, 122, 255, 0.3);
-        }
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
 
-        .amount-display {
-            font-size: 32px;
-            font-weight: 800;
-            color: #1a1a2e;
-            display: block;
-            margin: 4px 0 4px;
-        }
+    /* === СЕТКА МФО === */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 30px 0 30px;
+    }
 
-        .amount-display small {
-            font-size: 18px;
-            font-weight: 400;
-            color: #5a5a7a;
-        }
+    .offer-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px 16px 18px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      transition: transform 0.15s;
+      border: 1px solid #edf2f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .btn-primary {
-            background: #2d7aff;
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            border-radius: 60px;
-            font-size: 18px;
-            font-weight: 700;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-top: 12px;
-            box-shadow: 0 6px 20px rgba(45, 122, 255, 0.25);
-        }
+    .offer-card:hover {
+      transform: translateY(-3px);
+    }
 
-        .btn-primary:hover {
-            background: #1a5fdb;
-            transform: scale(1.01);
-        }
+    .offer-logo {
+      width: 80px;
+      height: 80px;
+      background: #f8fafc;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      font-weight: 700;
+      font-size: 24px;
+      color: #f97316;
+    }
 
-        .btn-primary:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
+    .offer-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+    }
 
-        /* --- ПРЕИМУЩЕСТВА --- */
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 24px 0 8px;
-        }
+    .offer-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
 
-        .feature-item {
-            background: #f8faff;
-            border-radius: 16px;
-            padding: 16px 12px;
-            text-align: center;
-            border: 1px solid #eef2f9;
-        }
+    .offer-desc {
+      font-size: 14px;
+      color: #475569;
+      margin: 4px 0 8px;
+    }
 
-        .feature-item span {
-            font-size: 26px;
-            display: block;
-            margin-bottom: 4px;
-        }
+    .stars {
+      color: #fbbf24;
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
 
-        .feature-item p {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1a1a2e;
-            margin: 0;
-        }
+    .apply-btn {
+      background: #f97316;
+      color: #fff;
+      border: none;
+      padding: 10px 0;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 16px;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
 
-        .feature-item small {
-            font-size: 12px;
-            color: #5a5a7a;
-        }
+    .apply-btn:hover {
+      background: #ea580c;
+    }
 
-        /* --- БЕГУЩИЕ ЗАЯВКИ --- */
-        .live-feed {
-            background: #ffffff;
-            border: 1px solid #eef2f9;
-            border-radius: 20px;
-            padding: 16px 16px 10px;
-            margin: 20px 0 16px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
+    /* === ПОЧЕМУ МЫ === */
+    .why-section {
+      margin: 50px 0 30px;
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 40px 36px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    }
 
-        .live-feed-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
+    .why-section h2 {
+      font-size: 34px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+    }
 
-        .live-dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
+    .why-section .subhead {
+      font-size: 18px;
+      color: #475569;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
 
-        @keyframes pulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1); }
-        }
+    .why-section h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin: 32px 0 12px;
+    }
 
-        .live-feed-items {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-height: 220px;
-            overflow: hidden;
-        }
+    .why-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
 
-        .feed-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #f8faff;
-            border-radius: 12px;
-            padding: 10px 14px;
-            font-size: 14px;
-            border-left: 4px solid #2d7aff;
-            animation: slideIn 0.4s ease;
-        }
+    .why-section ul li {
+      font-size: 16px;
+      color: #1e293b;
+      padding: 8px 0 8px 28px;
+      position: relative;
+      line-height: 1.5;
+    }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-12px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
+    .why-section ul li::before {
+      content: "●";
+      color: #f97316;
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      top: 8px;
+    }
 
-        .feed-item .name { font-weight: 600; color: #1a1a2e; }
-        .feed-item .amount { font-weight: 700; color: #1a1a2e; }
+    .why-section .warning {
+      background: #fef9f0;
+      border-left: 4px solid #f97316;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 28px 0 10px;
+      font-size: 15px;
+      color: #1e293b;
+      line-height: 1.6;
+    }
 
-        .feed-item .status {
-            font-size: 12px;
-            font-weight: 600;
-            padding: 2px 12px;
-            border-radius: 30px;
-        }
+    .why-section .warning strong {
+      color: #1a1a2e;
+    }
 
-        .status-new { background: #eef3ff; color: #2d7aff; }
-        .status-approved { background: #e6f7e6; color: #16a34a; }
-        .status-payout { background: #fef3c7; color: #b45309; }
+    .why-section .footnote {
+      font-size: 14px;
+      color: #64748b;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #e2e8f0;
+    }
 
-        .feed-item .time { font-size: 11px; color: #8e8ea0; }
+    /* === ЧАСТЫЕ ВОПРОСЫ (АККОРДЕОН) === */
+    .faq-section {
+      margin: 50px 0 30px;
+    }
 
-        /* --- КВАДРАТНЫЕ КАРТОЧКИ МФО --- */
-        #offers-list {
-            display: none;
-            margin-top: 24px;
-            animation: fadeIn 0.5s ease;
-        }
+    .faq-section h2 {
+      font-size: 34px;
+      font-weight: 800;
+      text-align: center;
+      color: #1a1a2e;
+      margin-bottom: 24px;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .faq-item {
+      background: #ffffff;
+      border-radius: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      overflow: hidden;
+      border: 1px solid #edf2f7;
+    }
 
-        .offers-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a2e;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background 0.2s;
+    }
 
-        .offer-card {
-            background: #f8faff;
-            border: 1px solid #eef2f9;
-            border-radius: 20px;
-            padding: 16px 12px 14px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: 0.15s;
-        }
+    .faq-question:hover {
+      background: #f8fafc;
+    }
 
-        .offer-card:hover {
-            border-color: #cdd9f0;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-        }
+    .faq-question::after {
+      content: "+";
+      font-size: 28px;
+      font-weight: 300;
+      color: #f97316;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
 
-        .offer-logo {
-            width: 72px;
-            height: 72px;
-            background: #ffffff;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 8px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-            border: 1px solid #eef2f9;
-            overflow: hidden;
-            font-weight: 700;
-            font-size: 22px;
-            color: #2d7aff;
-        }
+    .faq-item.open .faq-question::after {
+      transform: rotate(45deg);
+    }
 
-        .offer-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 8px;
-        }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 24px;
+      color: #475569;
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-        .offer-name {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 2px;
-            line-height: 1.2;
-        }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+      padding: 0 24px 24px 24px;
+    }
 
-        .offer-desc {
-            font-size: 12px;
-            color: #5a5a7a;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
+    /* === ОТЗЫВЫ === */
+    .reviews-section {
+      margin: 50px 0 30px;
+    }
 
-        .apply-btn {
-            background: #2d7aff;
-            color: white;
-            border: none;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.15s;
-        }
+    .reviews-section h2 {
+      font-size: 34px;
+      font-weight: 800;
+      text-align: center;
+      color: #1a1a2e;
+      margin-bottom: 24px;
+    }
 
-        .apply-btn:active {
-            opacity: 0.7;
-            transform: scale(0.96);
-        }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
 
-        /* --- ПОДВАЛ --- */
-        .footer-note {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #8e8ea0;
-            text-align: center;
-            border-top: 1px solid #f0f2f5;
-            padding-top: 20px;
-            line-height: 1.5;
-        }
+    .review-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px 20px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid #edf2f7;
+      transition: transform 0.15s;
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* --- АДАПТАЦИЯ ПОД ТЕЛЕФОН --- */
-        @media (max-width: 500px) {
-            .container { padding: 16px; }
-            .hero h1 { font-size: 24px; }
-            .stats { gap: 12px; }
-            .features { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .feature-item { padding: 12px 8px; }
-            .offers-grid { gap: 10px; }
-            .offer-logo { width: 60px; height: 60px; }
-            .offer-name { font-size: 14px; }
-        }
-    </style>
+    .review-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .review-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .review-stars {
+      color: #fbbf24;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    .review-text {
+      font-size: 15px;
+      color: #1e293b;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .review-date {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 12px;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 12px;
+    }
+
+    /* === ПОДВАЛ === */
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #475569;
+      padding: 30px 0 20px;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+
+    .footer a {
+      color: #f97316;
+      text-decoration: none;
+    }
+
+    .footer .disclaimer {
+      font-size: 13px;
+      color: #64748b;
+      max-width: 800px;
+      margin: 0 auto 8px;
+    }
+
+    /* === АДАПТАЦИЯ === */
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 30px; }
+      .hero p { font-size: 17px; }
+      .offers-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .nav { gap: 14px; font-size: 14px; }
+      .container { padding: 0 16px; }
+      .slider-block { padding: 24px 16px; }
+      .why-section { padding: 24px 16px; }
+      .why-section h2 { font-size: 28px; }
+      .why-section h3 { font-size: 20px; }
+      .faq-section h2 { font-size: 28px; }
+      .faq-question { font-size: 16px; padding: 16px 18px; }
+      .reviews-section h2 { font-size: 28px; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+
+    @media (max-width: 450px) {
+      .offers-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .header { flex-direction: column; align-items: stretch; }
+      .nav { justify-content: center; flex-wrap: wrap; }
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-   <!-- ===== ШАПКА С НАЗВАНИЕМ ЗАЙМЫЧ ===== -->
-    <div class="header">
-        <div class="logo">
-            <!-- 
-                ЗАГРУЗИ СВОЙ ЛОГОТИП КАРТИНКОЙ И ЗАМЕНИ "logo.png"
-                РАЗМЕР КАРТИНКИ ТЕПЕРЬ УВЕЛИЧЕН ДО 56px
-            -->
-            <img src="logo.png" alt="ЗАЙМЫЧ" style="height: 64px; width: auto; border-radius: 14px;" onerror="this.style.display='none'; document.getElementById('logoPlaceholder').style.display='flex';">
-            <div class="logo-placeholder" id="logoPlaceholder" style="display: none;">З</div>
-            <span class="logo-text"><span>ЗАЙМЫЧ</span></span>
-        </div>
-        <div class="badge">⭐ Одобрение 97%</div>
-    </div>
 
-    <!-- ===== ПЕРВЫЙ ЭКРАН ===== -->
-    <div class="hero">
-        <h1>Деньги на карту <span>за 5 минут</span></h1>
-        <p>Без справок, поручителей и лишних звонков</p>
-        <div class="stats">
-            <div class="stats-item"><span>✅</span> 0% первый займ</div>
-            <div class="stats-item"><span>⚡</span> 97% одобрения</div>
-            <div class="stats-item"><span>🕒</span> 24/7</div>
-        </div>
+  <!-- ===== ШАПКА ===== -->
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="ЗАЙМЫЧ" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-size:28px;font-weight:800;color:#f97316;\'>ЗАЙМЫЧ</span>';" />
     </div>
+    <nav class="nav">
+      <a href="#offers-section">Список МФО</a>
+      <a href="#why-section">Почему МЫ?</a>
+      <a href="#faq-section">Вопрос — Ответ</a>
+    </nav>
+  </header>
 
-    <!-- ===== ПОЛЗУНОК ===== -->
+  <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+  <section class="hero">
+    <h1>ЗАЙМЫЧ — лучшие микрозаймы <br><span>с честными условиями</span></h1>
+    <p>
+      Помогаем быстро найти честное предложение: от 0% для новых клиентов,
+      с высокой вероятностью одобрения и без страховок. Только МФО с лицензией ЦБ.
+    </p>
+
     <div class="slider-block" id="questionBlock">
-        <h2>💰 Какая сумма вам нужна?</h2>
-        <div class="sub">Двигайте ползунок, выберите сумму</div>
-        <input type="range" id="amountSlider" min="1000" max="100000" step="1000" value="5000">
-        <span class="amount-display">
-            <span id="amountDisplay">5000</span> <small>₽</small>
-        </span>
-        <button class="btn-primary" id="showOffersBtn">👉 Подобрать займ</button>
+      <h2>💸 Какая сумма вам нужна?</h2>
+      <div class="sub">Двигайте ползунок, выберите сумму до 100 000 ₽</div>
+
+      <input type="range" id="amountSlider" min="1000" max="100000" step="1000" value="15000" />
+
+      <span class="amount-display">
+        <span id="amountDisplay">15 000</span> <small>₽</small>
+      </span>
+
+      <button class="btn-primary" id="showOffersBtn">👉 Подобрать займ</button>
+    </div>
+  </section>
+
+  <!-- ===== СПИСОК МФО ===== -->
+  <section id="offers-section">
+    <h2 style="font-size:28px;font-weight:800;text-align:center;margin:30px 0 10px;">🔥 Доступные займы</h2>
+    <p style="text-align:center;color:#475569;margin-bottom:20px;">Нажмите «Оформить», чтобы перейти к заявке</p>
+    <div class="offers-grid" id="offersContainer"></div>
+  </section>
+
+  <!-- ===== ПОЧЕМУ МЫ ===== -->
+  <section id="why-section" class="why-section">
+    <h2>ЗАЙМЫЧ — сервис, который поможет взять займ без неприятных сюрпризов</h2>
+    <div class="subhead">
+      Когда деньги нужны срочно, легко попасть на высокие проценты или скрытые комиссии. Мы создали этот проект, чтобы вы могли сравнивать условия МФО осознанно — без спешки и без риска нарваться на нелегальную компанию.
     </div>
 
-    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
-    <div class="features">
-        <div class="feature-item">
-            <span>⚡</span>
-            <p>За 2 минуты</p>
-            <small>одобрение онлайн</small>
-        </div>
-        <div class="feature-item">
-            <span>🔒</span>
-            <p>Безопасно</p>
-            <small>ваши данные защищены</small>
-        </div>
-        <div class="feature-item">
-            <span>💳</span>
-            <p>На любую карту</p>
-            <small>мгновенный перевод</small>
-        </div>
-        <div class="feature-item">
-            <span>🔄</span>
-            <p>С любой КИ</p>
-            <small>одобряем с просрочками</small>
-        </div>
+    <h3>Как мы отбираем МФО</h3>
+    <ul>
+      <li><strong>Проверяем лицензию ЦБ</strong> — в каталог попадают только компании из официального реестра.</li>
+      <li><strong>Анализируем реальные отзывы</strong> — не удаляем негатив, если клиент столкнулся с нарушением.</li>
+      <li><strong>Следим за изменениями в законодательстве</strong> — например, с 2026 года мы учитываем новые ограничения по ПСК и требования к биометрии.</li>
+    </ul>
+
+    <h3>Что вы найдёте на сайте</h3>
+    <ul>
+      <li><strong>Более 20 проверенных МФО</strong> — от крупных федеральных до региональных, которые иногда дают более гибкие условия.</li>
+      <li><strong>Умные фильтры</strong> — выберите сумму, срок, наличие беспроцентного периода или возможность продления.</li>
+    </ul>
+
+    <div class="warning">
+      <strong>Важно: микрозайм — это инструмент для коротких ситуаций</strong><br>
+      Мы не призываем брать займы «на всякий случай». Наша цель — помочь тем, кто оказался в трудной финансовой ситуации, сделать выбор с минимальными потерями. По нашей статистике, пользователи, которые сравнивают хотя бы три предложения, переплачивают в среднем на 23% меньше.
     </div>
 
-    <!-- ===== БЕГУЩИЕ ЗАЯВКИ ===== -->
-    <div class="live-feed" id="liveFeed">
-        <div class="live-feed-header">
-            <span class="live-dot"></span>
-            <span style="font-weight: 600; font-size: 16px;">Сейчас оформляют</span>
-            <span style="color: #2d7aff; font-size: 14px;">🔥 24/7</span>
-        </div>
-        <div class="live-feed-items" id="feedItems"></div>
+    <div class="warning" style="border-left-color:#2563eb; background:#f0f4ff;">
+      <strong>Совет редакции:</strong> перед оформлением убедитесь, что сможете вернуть деньги в срок. Размер платежа не должен оставлять вас без средств на самое необходимое. Если сомневаетесь — используйте кнопку «Пролонгация» в фильтрах: мы покажем компании, которые разрешают продлить заём без штрафов.
     </div>
 
-    <!-- ===== СПИСОК МФО (СКРЫТ) ===== -->
-    <div id="offers-list" style="display: none;">
-        <h2 style="font-size: 20px; margin: 12px 0 6px; text-align: center;">🔥 Доступные займы</h2>
-        <p style="text-align: center; color: #5a5a7a; font-size: 14px; margin-bottom: 16px;">Нажмите «Оформить», чтобы перейти к заявке</p>
-        <div class="offers-grid" id="offersContainer"></div>
+    <div class="footnote">
+      ⚠️ Нажимая на кнопки «Получить деньги», вы переходите на сайт МФО. Мы не выдаём займы и не берём плату за подбор. Все организации предварительно проверены по реестру ЦБ РФ.
+    </div>
+  </section>
+
+  <!-- ===== ЧАСТЫЕ ВОПРОСЫ ===== -->
+  <section id="faq-section" class="faq-section">
+    <h2>❓ Частые вопросы</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">Кто вообще может взять микрозайм?</button>
+      <div class="faq-answer">
+        Гражданин РФ старше 18 лет (в некоторых МФО — с 19 или 21 года) с паспортом. Постоянная регистрация в регионе присутствия МФО не обязательна, большинство работает удалённо. Справки о доходах обычно не требуют, но окончательное решение зависит от внутреннего скоринга.
+      </div>
     </div>
 
-    <!-- ===== ПОДВАЛ ===== -->
-    <div class="footer-note">
-        Реклама. 18+ Услуги предоставляются МФО. Первый займ до 10 000 ₽ — 0% при своевременном погашении.<br>
-        <a href="#">Оферта</a> · <a href="#">Политика конфиденциальности</a>
+    <div class="faq-item">
+      <button class="faq-question">Дадут ли займ, если кредитная история испорчена?</button>
+      <div class="faq-answer">
+        МФО передают данные в бюро кредитных историй (БКИ). Если вы погасите займ вовремя, это улучшит вашу репутацию. Но регулярные обращения за микрокредитами сигнализируют банкам о финансовой нестабильности — это может стать причиной отказа в ипотеке или автокредите.
+      </div>
     </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Сколько денег можно получить в первый раз?</button>
+      <div class="faq-answer">
+        Обычно от 1 000 до 30 000 рублей. Лимит зависит от политики МФО и результатов скоринга. После первого погашения без просрочек сумма может расти — некоторые компании увеличивают лимит до 100 000 ₽ и выше.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Что такое ПСК и почему на неё смотреть?</button>
+      <div class="faq-answer">
+        ПСК — полная стоимость кредита в процентах годовых. В неё входят и проценты, и все комиссии, и страховки, если они обязательны. Именно ПСК позволяет честно сравнить предложения разных МФО. Дневная ставка 0,8% может обернуться 292% годовых, а где‑то с учётом комиссий выйдет и все 350%. Закон обязывает указывать ПСК на первой странице договора.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Есть ли займы совсем без процентов?</button>
+      <div class="faq-answer">
+        Да, почти все легальные МФО предлагают «первый займ под 0%» на срок от 5 до 30 дней. Это маркетинговый инструмент для привлечения новых клиентов. Важно: если не вернёте деньги в льготный период, начнут капать стандартные проценты, часто довольно высокие.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ОТЗЫВЫ ===== -->
+  <section class="reviews-section">
+    <h2>🌟 Реальные отзывы</h2>
+    <div class="reviews-grid" id="reviewsContainer"></div>
+  </section>
+
+  <!-- ===== ПОДВАЛ ===== -->
+  <div class="footer">
+    <div class="disclaimer">
+      <strong>Оценивайте свои финансовые возможности и риски.</strong> Информация на сайте несет ознакомительный характер. Все рекомендации являются результатом аналитических исследований и не несут рекламный характер. Предложение не является оффертой. Конечные условия уточняйте при прямом общении с кредиторами.
+    </div>
+    <div style="margin-top:12px;">
+      <a href="#">Оферта</a> · 
+      <a href="#">Политика конфиденциальности</a>
+    </div>
+  </div>
+
 </div>
 
 <script>
-    // ================================================================
-    // 1. ТВОЙ СПИСОК МФО (ВСЕ ССЫЛКИ И ОПИСАНИЯ)
-    // ================================================================
-    const offers = [
-        { name: "Joymoney", description: "0% для новых", url: "https://trk.ppdu.ru/click/ozOtKceG?erid=Kra23k98b", logoText: "JM", logoImage: "joymoney.png" },
-        { name: "BelkaCredit", description: "до 30 000 ₽, от 0%", url: "https://trk.ppdu.ru/click/VIouyVge?erid=2SDnjeBXSqx", logoText: "BC", logoImage: "belkacredit.png" },
-        { name: "Max.Credit", description: "0.8% на 30 дней", url: "https://trk.ppdu.ru/click/WEZvv780?erid=2SDnjbuHuCz", logoText: "MC", logoImage: "maxcredit.png" },
-        { name: "MScore", description: "0.8% на 30 дней", url: "https://trk.ppdu.ru/click/iCjimFUP?erid=2SDnjdo1deu", logoText: "MSc", logoImage: "mscore.png" },
-        { name: "Быстроденьги", description: "0% до 100 000р", url: "https://trk.ppdu.ru/click/PaeeJ2lf?erid=2SDnjcrSm9t", logoText: "БД", logoImage: "bistrodengi.png" },
-        { name: "Мега Деньги", description: "0.8% на 30 дней", url: "https://trk.ppdu.ru/click/2C1UblIC?erid=2SDnjbxrnwX", logoText: "МД", logoImage: "megadengi.png" },
-        { name: "Credit Plus", description: "до 30 000р, 0.8%", url: "https://trk.ppdu.ru/click/npiqnlE0?erid=2SDnjdkMLTk", logoText: "CP", logoImage: "creditplus.png" },
-        { name: "ГринМани", description: "первый займ 0%", url: "https://trk.ppdu.ru/click/AiB3fpXX?erid=2SDnjeD276A", logoText: "ГМ", logoImage: "greenmoney.png" },
-        { name: "Кредитнау", description: "займ под 0.8%", url: "https://trk.ppdu.ru/click/3FooA4s3?erid=2SDnjcBztLi", logoText: "КН", logoImage: "creditnow.png" },
-        { name: "Миг Кредит", description: "до 100 000р, от 0%", url: "https://trk.ppdu.ru/click/SVMUykjH?erid=2SDnjdHgEMQ", logoText: "МК", logoImage: "migcredit.png" },
-        { name: "Fin5", description: "до 25 000р, от 0.5%", url: "https://trk.ppdu.ru/click/I6oR1NSO?erid=2SDnjbxiPg4", logoText: "F5", logoImage: "finfive.png" },
-        { name: "ЛайкЗайм", description: "до 30 000р, 0%", url: "https://trk.ppdu.ru/click/ohbusdSp?erid=2SDnjevMQUa", logoText: "ЛЗ", logoImage: "likezaym.png" },
-        { name: "До Зарплаты", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/Tc8w8kwA?erid=2SDnjevZFtJ", logoText: "ДЗ", logoImage: "dozp.jpg" },
-        { name: "Альфа Деньги", description: "до 50 000р, 0%", url: "https://trk.ppdu.ru/click/QS4DAn1m?erid=2SDnjdr3sYP", logoText: "АД", logoImage: "alfadengi.png" },
-        { name: "Boostra", description: "до 30 000р, 0%", url: "https://trk.ppdu.ru/click/KnCW2hRK?erid=LjN8KcZD2", logoText: "BS", logoImage: "boostra.png" },
-        { name: "Турбозайм", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/GLvNDsfv?erid=2SDnjd8rmri", logoText: "ТЗ", logoImage: "turbozaim.png" },
-        { name: "MoneyMan", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/IXQiOXHV?erid=2SDnjdTrs6M", logoText: "MM", logoImage: "moneyman.png" },
-        { name: "Деньга", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/GQozttEA?erid=2SDnjf3cK1c", logoText: "ДЕ", logoImage: "denga.png" },
-        { name: "Деньги на дом", description: "до 100 000р, 26 нед", url: "https://trk.ppdu.ru/click/7yrC6p7l?erid=2SDnjboLDnJ", logoText: "ДнД", logoImage: "dengidom.png" },
-        { name: "Привет, сосед!", description: "до 50 000р, 0%", url: "https://trk.ppdu.ru/click/HmgIG9i0?erid=2SDnjeb3GV2", logoText: "ПС", logoImage: "privetsosed.png" }
-    ];
+  // ================================================================
+  // ТВОЙ СПИСОК МФО
+  // ================================================================
+  const offers = [
+    { name: "Joymoney", description: "0% для новых", url: "https://trk.ppdu.ru/click/ozOtKceG?erid=Kra23k98b", logoImage: "joymoney.png", rating: 4.8 },
+    { name: "BelkaCredit", description: "до 30 000 ₽, от 0%", url: "https://trk.ppdu.ru/click/VIouyVge?erid=2SDnjeBXSqx", logoImage: "belkacredit.png", rating: 4.6 },
+    { name: "Max.Credit", description: "0.8% на 30 дней", url: "https://trk.ppdu.ru/click/WEZvv780?erid=2SDnjbuHuCz", logoImage: "maxcredit.png", rating: 4.5 },
+    { name: "MScore", description: "0.8% на 30 дней", url: "https://trk.ppdu.ru/click/iCjimFUP?erid=2SDnjdo1deu", logoImage: "mscore.png", rating: 4.7 },
+    { name: "Быстроденьги", description: "0% до 100 000р", url: "https://trk.ppdu.ru/click/PaeeJ2lf?erid=2SDnjcrSm9t", logoImage: "bistrodengi.png", rating: 4.9 },
+    { name: "Мега Деньги", description: "0.8% на 30 дней", url: "https://trk.ppdu.ru/click/2C1UblIC?erid=2SDnjbxrnwX", logoImage: "megadengi.png", rating: 4.4 },
+    { name: "Credit Plus", description: "до 30 000р, 0.8%", url: "https://trk.ppdu.ru/click/npiqnlE0?erid=2SDnjdkMLTk", logoImage: "creditplus.png", rating: 4.5 },
+    { name: "ГринМани", description: "первый займ 0%", url: "https://trk.ppdu.ru/click/AiB3fpXX?erid=2SDnjeD276A", logoImage: "greenmoney.png", rating: 4.6 },
+    { name: "Кредитнау", description: "займ под 0.8%", url: "https://trk.ppdu.ru/click/3FooA4s3?erid=2SDnjcBztLi", logoImage: "creditnow.png", rating: 4.5 },
+    { name: "Миг Кредит", description: "до 100 000р, от 0%", url: "https://trk.ppdu.ru/click/SVMUykjH?erid=2SDnjdHgEMQ", logoImage: "migcredit.png", rating: 4.7 },
+    { name: "Fin5", description: "до 25 000р, от 0.5%", url: "https://trk.ppdu.ru/click/I6oR1NSO?erid=2SDnjbxiPg4", logoImage: "finfive.png", rating: 4.4 },
+    { name: "ЛайкЗайм", description: "до 30 000р, 0%", url: "https://trk.ppdu.ru/click/ohbusdSp?erid=2SDnjevMQUa", logoImage: "likezaym.png", rating: 4.8 },
+    { name: "До Зарплаты", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/Tc8w8kwA?erid=2SDnjevZFtJ", logoImage: "dozp.jpg", rating: 4.6 },
+    { name: "Альфа Деньги", description: "до 50 000р, 0%", url: "https://trk.ppdu.ru/click/QS4DAn1m?erid=2SDnjdr3sYP", logoImage: "alfadengi.png", rating: 4.5 },
+    { name: "Boostra", description: "до 30 000р, 0%", url: "https://trk.ppdu.ru/click/KnCW2hRK?erid=LjN8KcZD2", logoImage: "boostra.png", rating: 4.7 },
+    { name: "Турбозайм", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/GLvNDsfv?erid=2SDnjd8rmri", logoImage: "turbozaim.png", rating: 5.0 },
+    { name: "MoneyMan", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/IXQiOXHV?erid=2SDnjdTrs6M", logoImage: "moneyman.png", rating: 4.9 },
+    { name: "Деньга", description: "до 100 000р, 0%", url: "https://trk.ppdu.ru/click/GQozttEA?erid=2SDnjf3cK1c", logoImage: "denga.png", rating: 4.5 },
+    { name: "Деньги на дом", description: "до 100 000р, 26 нед", url: "https://trk.ppdu.ru/click/7yrC6p7l?erid=2SDnjboLDnJ", logoImage: "dengidom.png", rating: 4.6 },
+    { name: "Привет, сосед!", description: "до 50 000р, 0%", url: "https://trk.ppdu.ru/click/HmgIG9i0?erid=2SDnjeb3GV2", logoImage: "privetsosed.png", rating: 4.7 }
+  ];
 
-    // ================================================================
-    // 2. ПОЛЗУНОК
-    // ================================================================
-    const slider = document.getElementById('amountSlider');
-    const display = document.getElementById('amountDisplay');
-    const questionBlock = document.getElementById('questionBlock');
-    const offersList = document.getElementById('offers-list');
-    const offersContainer = document.getElementById('offersContainer');
-    const showBtn = document.getElementById('showOffersBtn');
+  // ================================================================
+  // ОТЗЫВЫ
+  // ================================================================
+  const reviews = [
+    { name: "Алексей С.", rating: 5.0, text: "Очень выручили, когда срочно понадобились деньги на ремонт машины. Оформил за 10 минут, деньги пришли на карту почти сразу. Сравнил три МФО и выбрал лучшие условия.", date: "15 июня 2026" },
+    { name: "Марина К.", rating: 4.8, text: "Первый раз брала микрозайм, было страшно, но всё прошло гладко. Сайт понятный, сразу видно, где нет скрытых комиссий. Погасила досрочно — переплата минимальная.", date: "12 июня 2026" },
+    { name: "Дмитрий В.", rating: 4.5, text: "Брал займ до зарплаты. Из всех предложений выбрал с самой низкой ставкой. Всё честно, никаких сюрпризов. Вернул в срок.", date: "10 июня 2026" },
+    { name: "Екатерина П.", rating: 4.9, text: "Очень удобно, что можно сравнить все предложения на одной странице. Не нужно лазить по разным сайтам. Оформила за 5 минут.", date: "8 июня 2026" },
+    { name: "Игорь Н.", rating: 4.2, text: "Сначала переживал, что откажут из-за плохой кредитной истории. Но нашёл вариант, где одобряют с просрочками. Да, ставка выше, но хотя бы дали деньги.", date: "5 июня 2026" },
+    { name: "Ольга Ф.", rating: 4.7, text: "Понравилось, что на сайте есть ответы на все вопросы. Я вообще не разбираюсь в этих ПСК и ставках, а тут всё разжевано. Взяла первый займ под 0%.", date: "3 июня 2026" },
+    { name: "Сергей Л.", rating: 4.6, text: "Пользовался несколько раз, всегда выбирал через этот сервис. Удобно, быстро, а главное — видно реальные условия без воды.", date: "30 мая 2026" },
+    { name: "Анна Р.", rating: 4.8, text: "Срочно понадобились деньги на лечение. Нашла вариант без страховок и скрытых платежей. Очень благодарна, что есть такие сервисы.", date: "28 мая 2026" },
+    { name: "Виктор К.", rating: 4.4, text: "Взял займ на 14 дней. Вернул без проблем. Всё честно, как и обещали. Разница в переплате между МФО может быть большой.", date: "25 мая 2026" },
+    { name: "Юлия М.", rating: 5.0, text: "Отличный сайт! Сравнила 5 МФО и выбрала лучшую ставку. Деньги пришли через 3 минуты. Теперь только этим сервисом пользуюсь.", date: "20 мая 2026" }
+  ];
 
-    slider.addEventListener('input', function() {
-        display.textContent = this.value;
+  // ================================================================
+  // ЛОГИКА
+  // ================================================================
+  const slider = document.getElementById('amountSlider');
+  const display = document.getElementById('amountDisplay');
+  const questionBlock = document.getElementById('questionBlock');
+  const offersContainer = document.getElementById('offersContainer');
+  const showBtn = document.getElementById('showOffersBtn');
+  const reviewsContainer = document.getElementById('reviewsContainer');
+
+  slider.addEventListener('input', function() {
+    display.textContent = Number(this.value).toLocaleString('ru-RU');
+  });
+
+  showBtn.addEventListener('click', function() {
+    this.textContent = '⏳ Ищем...';
+    this.disabled = true;
+
+    setTimeout(() => {
+      questionBlock.style.display = 'none';
+      renderOffers();
+      this.textContent = '✅ Подобрано!';
+      this.disabled = false;
+    }, 700);
+  });
+
+  function renderOffers() {
+    if (offersContainer.children.length > 0) {
+      offersContainer.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    offers.forEach((item) => {
+      const card = document.createElement('div');
+      card.className = 'offer-card';
+
+      const full = Math.floor(item.rating);
+      const half = item.rating % 1 >= 0.5 ? 1 : 0;
+      const empty = 5 - full - half;
+      let starsHtml = '';
+      for (let i = 0; i < full; i++) starsHtml += '★';
+      if (half) starsHtml += '☆';
+      for (let i = 0; i < empty; i++) starsHtml += '☆';
+
+      let logoHtml = item.logoImage
+        ? `<img src="${item.logoImage}" alt="${item.name}" onerror="this.style.display='none'; this.parentElement.textContent='${item.name.slice(0,2).toUpperCase()}';">`
+        : item.name.slice(0, 2).toUpperCase();
+
+      card.innerHTML = `
+        <div class="offer-logo">${logoHtml}</div>
+        <div class="offer-name">${item.name}</div>
+        <div class="offer-desc">${item.description}</div>
+        <div class="stars">${starsHtml}</div>
+        <button class="apply-btn" data-url="${item.url}">Оформить</button>
+      `;
+
+      offersContainer.appendChild(card);
     });
 
-    showBtn.addEventListener('click', function() {
-        this.textContent = '⏳ Ищем...';
-        this.disabled = true;
-
-        setTimeout(() => {
-            questionBlock.style.display = 'none';
-            offersList.style.display = 'block';
-            renderOffersGrid();
-            this.textContent = '✅ Подобрано!';
-            this.disabled = false;
-        }, 700);
+    document.querySelectorAll('.apply-btn').forEach((btn) => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        window.location.href = this.getAttribute('data-url');
+      });
     });
+  }
 
-    // ================================================================
-    // 3. ОТРИСОВКА КАРТОЧЕК (КВАДРАТИКАМИ)
-    // ================================================================
-    function renderOffersGrid() {
-        offersContainer.innerHTML = '';
+  function renderReviews() {
+    reviews.forEach((review) => {
+      const card = document.createElement('div');
+      card.className = 'review-card';
 
-        offers.forEach((item) => {
-            const card = document.createElement('div');
-            card.className = 'offer-card';
+      const full = Math.floor(review.rating);
+      const half = review.rating % 1 >= 0.5 ? 1 : 0;
+      const empty = 5 - full - half;
+      let starsHtml = '';
+      for (let i = 0; i < full; i++) starsHtml += '★';
+      if (half) starsHtml += '☆';
+      for (let i = 0; i < empty; i++) starsHtml += '☆';
 
-            let logoHtml = '';
-            if (item.logoImage) {
-                // Если есть картинка — показываем её
-                logoHtml = `<img src="${item.logoImage}" alt="${item.name}" onerror="this.style.display='none'; this.parentElement.textContent='${item.logoText || item.name.substring(0,2).toUpperCase()}';">`;
-            } else {
-                // Если картинки нет — показываем буквы
-                logoHtml = item.logoText || item.name.substring(0, 2).toUpperCase();
-            }
+      card.innerHTML = `
+        <div class="review-header">
+          <span class="review-name">${review.name}</span>
+          <span class="review-stars">${starsHtml}</span>
+        </div>
+        <div class="review-text">${review.text}</div>
+        <div class="review-date">${review.date}</div>
+      `;
 
-            card.innerHTML = `
-                <div class="offer-logo">${logoHtml}</div>
-                <div class="offer-name">${item.name}</div>
-                <div class="offer-desc">${item.description}</div>
-                <button class="apply-btn" data-url="${item.url}">Оформить</button>
-            `;
+      reviewsContainer.appendChild(card);
+    });
+  }
 
-            offersContainer.appendChild(card);
-        });
+  // ===== АККОРДЕОН =====
+  document.querySelectorAll('.faq-question').forEach((btn) => {
+    btn.addEventListener('click', function() {
+      const parent = this.parentElement;
+      const isOpen = parent.classList.contains('open');
 
-        document.querySelectorAll('.apply-btn').forEach((btn) => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                window.location.href = this.getAttribute('data-url');
-            });
-        });
-    }
+      document.querySelectorAll('.faq-item.open').forEach((item) => {
+        if (item !== parent) item.classList.remove('open');
+      });
 
-    // ================================================================
-    // 4. БЕГУЩИЕ ЗАЯВКИ (АВТОМАТИЧЕСКИЕ)
-    // ================================================================
-    const feedItems = [
-        { name: "Тамара Н.Н.", amount: "40 000 ₽", status: "Новая заявка", statusClass: "status-new", time: "только что" },
-        { name: "Алексей Т.А.", amount: "42 000 ₽", status: "Новая заявка", statusClass: "status-new", time: "1 мин назад" },
-        { name: "Данила А.С.", amount: "37 000 ₽", status: "Одобрено", statusClass: "status-approved", time: "3 мин назад" },
-        { name: "Геннадий Г.С.", amount: "50 000 ₽", status: "Одобрено", statusClass: "status-approved", time: "5 мин назад" },
-        { name: "Никита С.Ф.", amount: "56 000 ₽", status: "Выдача денег", statusClass: "status-payout", time: "7 мин назад" },
-        { name: "Алена М.А.", amount: "52 000 ₽", status: "Выдача денег", statusClass: "status-payout", time: "9 мин назад" },
-        { name: "Олег В.С.", amount: "28 000 ₽", status: "Новая заявка", statusClass: "status-new", time: "12 мин назад" },
-        { name: "Марина Д.Д.", amount: "45 000 ₽", status: "Одобрено", statusClass: "status-approved", time: "15 мин назад" },
-        { name: "Сергей К.К.", amount: "60 000 ₽", status: "Выдача денег", statusClass: "status-payout", time: "18 мин назад" },
-        { name: "Екатерина П.П.", amount: "33 000 ₽", status: "Новая заявка", statusClass: "status-new", time: "22 мин назад" },
-        { name: "Дмитрий И.И.", amount: "49 000 ₽", status: "Одобрено", statusClass: "status-approved", time: "26 мин назад" },
-        { name: "Анна С.С.", amount: "55 000 ₽", status: "Выдача денег", statusClass: "status-payout", time: "30 мин назад" }
-    ];
+      if (isOpen) {
+        parent.classList.remove('open');
+      } else {
+        parent.classList.add('open');
+      }
+    });
+  });
 
-    let feedIndex = 0;
-    const feedContainer = document.getElementById('feedItems');
-
-    function addFeedItem() {
-        const item = feedItems[feedIndex % feedItems.length];
-        feedIndex++;
-        
-        const div = document.createElement('div');
-        div.className = 'feed-item';
-        div.innerHTML = `
-            <span class="name">${item.name}</span>
-            <span class="amount">${item.amount}</span>
-            <span class="status ${item.statusClass}">${item.status}</span>
-            <span class="time">${item.time}</span>
-        `;
-        
-        feedContainer.appendChild(div);
-        
-        while (feedContainer.children.length > 6) {
-            feedContainer.removeChild(feedContainer.firstChild);
-        }
-    }
-
-    // Первые заявки
-    for (let i = 0; i < 4; i++) {
-        setTimeout(() => addFeedItem(), i * 400);
-    }
-    // Дальше каждые 3.5 секунды
-    setInterval(addFeedItem, 3500);
+  // ===== ЗАПУСК =====
+  renderReviews();
 </script>
 
 </body>
